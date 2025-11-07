@@ -1,14 +1,7 @@
 - scope: process
-  name: "multiqc_p1"
+  name: "multiqc"
   var:
-    extra_args: ""
-    my_multiqc_argument: "This is just a multiqc."
-
-- scope: process
-  name: "multiqc_p2"
-  var:
-    map.file: "./test/data.txt"
-
-- scope: global
-  var:
-    mk.output: "./test/test-output"
+    fastqc: ""
+    featurecounts: ""
+    mapping: ""
+    multiqc_output: ""

@@ -1,31 +1,8 @@
 - scope: process
-  name: "multiqc_p1"
-  container: "ubuntu:24.04"
+  name: "multiqc"
   environment: "docker"
   var:
-    extra_args: ""
-    my_multiqc_argument: "This is just an example."
-    mk.output: "./test/test-output"
-
-- scope: process
-  name: "multiqc_p2"
-  container: "python:3.13-slim"
-  environment: "docker"
-  var:
-    map.file: "./test/data.txt"
-    mk.output: "./test/test-output"
-
-- scope: process
-  name: "multiqc_p3"
-  container: "r-base:4.5.1"
-  environment: "docker"
-  var:
-    mk.output: "./test/test-output"
-
-# - scope: global
-#   var:
-#     mk.output: "./test/test-output"
- 
-- scope: hash
-  include: ./test/test-output/multiqc.txt
-  overwrite: true # overwrite any existing hash already present on the logs folder
+    fastqc: ""
+    featurecounts: ""
+    mapping: ""
+    multiqc_output: ""
