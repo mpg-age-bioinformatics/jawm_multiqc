@@ -1,17 +1,15 @@
 import jawm
 import os
 
-# Auto-generated from Nextflow by nf_to_jawm.
-
 multiqc=jawm.Process(
     name="multiqc",
-    when=True,
+    when=lambda p: not os.path.isfile( os.path.join( p.var["multiqc_output"] , "multiqc_report.html" ) ) ,
     script="""\
 mkdir -p {{multiqc_output}}
 
-if [ {{fastqc}} != "" ] ; then fastqc_folder={{fastqc}} ; else fastqc_folder="" ; fi
-if [ {{mapping}} != "" ] ; then mapping_folder={{mapping}} ; else mapping_folder="" ; fi
-if [ {{featurecounts}} != "" ] ; then featureCounts_folder={{featurecounts}} ; else featureCounts_folder="" ; fi
+if [ "{{fastqc}}" != "" ] ; then fastqc_folder={{fastqc}} ; else fastqc_folder="" ; fi
+if [ "{{mapping}}" != "" ] ; then mapping_folder={{mapping}} ; else mapping_folder="" ; fi
+if [ "{{featurecounts}}" != "" ] ; then featureCounts_folder={{featurecounts}} ; else featureCounts_folder="" ; fi
 
 multiqc ${fastqc_folder} ${mapping_folder} ${featureCounts_folder} -f -o {{multiqc_output}}
 

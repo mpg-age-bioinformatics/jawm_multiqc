@@ -2,7 +2,11 @@
   name: "multiqc"
   environment: "docker"
   var:
-    fastqc: ""
-    featurecounts: ""
-    mapping: ""
-    multiqc_output: ""
+    map.fastqc: "./test/test-input/fastqc_output"
+    map.featurecounts: "./test/test-input/fastqc_output"
+    map.mapping: "./test/test-input/kallisto_output"
+    mk.multiqc_output: "./test/test-output/multiqc_output"
+
+- scope: hash
+  include: ./test/test-output/multiqc_output/multiqc_data/*txt
+  overwrite: true # overwrite any existing hash already present on the logs folder
