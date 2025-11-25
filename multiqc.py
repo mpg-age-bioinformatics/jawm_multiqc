@@ -21,7 +21,7 @@ multiqc ${fastqc_folder} ${mapping_folder} ${featureCounts_folder} -f -o {{multi
         "featurecounts":""
     },
     container="mpgagebioinformatics/multiqc:1.13",
-    manager_slurm={ "-c": 2, "--mem": "4GB", "-t": "1h" }
+    manager_slurm={ "-c": 2, "--mem": "4GB", "-t": "1:00:00" }
 )
 
 
