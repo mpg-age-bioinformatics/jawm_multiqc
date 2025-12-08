@@ -5,7 +5,6 @@
   environment_apptainer: { "-B":"/nexus:/nexus" }
   manager: slurm
   manager_slurm: { "-p":"cluster,dedicated" }
-
-# - scope: global
-#   manager: "slurm"
-#   environment: "apptainer"
+  # before_script: "module load apptainer"
+  # manager_slurm: {"--ntasks-per-core":"2", "-p":"general,small" }
+  parallel: True
