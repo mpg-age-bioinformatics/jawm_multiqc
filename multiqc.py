@@ -1,5 +1,7 @@
 import jawm
 import os
+from pathlib import Path
+
 
 multiqc=jawm.Process(
     name="multiqc",
@@ -25,10 +27,27 @@ multiqc ${fastqc_folder} ${mapping_folder} ${featureCounts_folder} -f -o {{multi
 )
 
 
+def report_files(multiqc_output) :
+    report_paths={}
+    dic={ 
+        multiqc_output : { 
+            "multiqc":"multiqc_report.html",
+            }
+        }
+
+    for path in dic :
+        directory = Path( path )
+        for folder in dic[path] :
+            files=[ f.resolve() for f in directory.glob( dic[path][folder] ) ]
+            if files :
+                report_paths[folder]=files
+
+    return report_paths
+
+
 if __name__ == "__main__":
     import sys
     from jawm.utils import workflow
-    from pathlib import Path
 
     workflows, var, args, unknown_args = jawm.utils.parse_arguments(['main','multiqc','test'])
 
