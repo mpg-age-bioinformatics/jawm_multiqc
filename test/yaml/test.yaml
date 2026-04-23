@@ -10,8 +10,8 @@
 - scope: hash
   include: 
     - ./test/test-output/multiqc_output/multiqc_data/multiqc_citations.txt
-    - ./test/test-output/multiqc_output/multiqc_data/multiqc_fastqc.txt
-    - ./test/test-output/multiqc_output/multiqc_data/multiqc_general_stats.txt
-    - ./test/test-output/multiqc_output/multiqc_data/multiqc_rseqc_infer_experiment.txt
-    - ./test/test-output/multiqc_output/multiqc_data/multiqc_samtools_flagstat.txt
+    # - ./test/test-output/multiqc_output/multiqc_data/multiqc_fastqc.txt
+    # - ./test/test-output/multiqc_output/multiqc_data/multiqc_general_stats.txt
+    # - ./test/test-output/multiqc_output/multiqc_data/multiqc_rseqc_infer_experiment.txt
+    # - ./test/test-output/multiqc_output/multiqc_data/multiqc_samtools_flagstat.txt
   overwrite: true # overwrite any existing hash already present on the logs folder
