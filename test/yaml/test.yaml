@@ -9,4 +9,4 @@
 
 - scope: hash
   include: ./test/test-output/multiqc_output/multiqc_data/*txt
-  overwrite: true # overwrite any existing hash already present on the logs folder
+  #overwrite: true # overwrite any existing hash already present on the logs folder
